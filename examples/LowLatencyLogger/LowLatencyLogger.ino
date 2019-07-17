@@ -318,7 +318,7 @@ void openBinFile() {
   char name[FILE_NAME_DIM];
   strcpy(name, binName);
   Serial.println(F("\nEnter two digit version"));
-  Serial.write(name, BASE_NAME_SIZE);
+  Serial.write((uint8_t*) name, BASE_NAME_SIZE);
   for (int i = 0; i < 2; i++) {
     while (!Serial.available()) {
      SysCall::yield();
