@@ -22,6 +22,9 @@ install:
     - mv $HOME/i2cdevlib/Arduino/* $HOME/Arduino/libraries/
     - rm -rf $HOME/arduino_ide/libraries/Adafruit_Test_Library/examples/*attic
     - rm -rf $HOME/arduino_ide/libraries/Adafruit_Test_Library/extras
+    - wget https://raw.githubusercontent.com/hathach/ArduinoCore-samd/fix-samd51-ram-macro/cores/arduino/avr/io.h
+    # modify samd core
+    - mv -f io.h $HOME/.arduino15/packages/adafruit/hardware/samd/*/cores/arduino/avr
 
 script:
   - build_main_platforms
